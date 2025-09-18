@@ -1,0 +1,109 @@
+ <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Study Planner</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Smart Study Planner</h1>
+    <p class="subtitle">Organize study goals, set reminders, and track progress</p>
+  </header>
+
+  <main class="container">
+    <section class="left">
+      <div class="card">
+        <h2>Add / Edit Task</h2>
+        <form id="task-form">
+          <input id="task-id" type="hidden" />
+          <label>
+            Title
+            <input id="title" type="text" required placeholder="e.g., Math - Integrals" />
+          </label>
+
+          <label>
+            Description
+            <textarea id="description" rows="3" placeholder="Short notes..."></textarea>
+          </label>
+
+          <div class="row">
+            <label>
+              Due Date
+              <input id="date" type="date" />
+            </label>
+            <label>
+              Time
+              <input id="time" type="time" />
+            </label>
+          </div>
+
+          <label>
+            Priority
+            <select id="priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </label>
+
+          <div class="row controls">
+            <label class="checkbox">
+              <input id="remind" type="checkbox" /> Set Reminder
+            </label>
+            <button id="save-btn" class="btn primary" type="submit">Save Task</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h2>Filter & Sort</h2>
+        <div class="filters">
+          <select id="filter-status">
+            <option value="all">All</option>
+            <option value="todo">To do</option>
+            <option value="done">Done</option>
+          </select>
+
+          <select id="sort-by">
+            <option value="date">Sort by: Date</option>
+            <option value="priority">Sort by: Priority</option>
+            <option value="created">Sort by: Created</option>
+          </select>
+
+          <input id="search" placeholder="Search tasks..." />
+        </div>
+      </div>
+    </section>
+
+    <section class="right">
+      <div class="card">
+        <h2>Tasks & Progress</h2>
+        <div id="progress-wrap">
+          <div class="progress-labels">
+            <span id="progress-text">0 / 0 completed</span>
+          </div>
+          <div class="progress-bar">
+            <div id="progress-fill"></div>
+          </div>
+        </div>
+
+        <ul id="task-list" class="task-list"></ul>
+      </div>
+
+      <div class="card timeline-card">
+        <h2>Timeline (upcoming)</h2>
+        <div id="timeline" class="timeline"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Works offline in your browser — data saved to Local Storage.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
